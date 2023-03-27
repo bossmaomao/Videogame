@@ -1,0 +1,115 @@
+package project_jamesbond;
+
+/**
+ *
+ * @author User
+ */
+
+import java.awt.*;
+import java.awt.event.*;
+
+
+import javax.swing.*;
+public class Project_Jamesbond extends JFrame{
+    private JLabel UserLabel;
+    private JLabel passwordLabel;
+    private JLabel drawpane;
+    private JPanel contentpane;
+    private JFrame frame1;
+    private JFrame frame2;
+    private JPasswordField pw;
+    private JTextField tf;
+    private JButton button;
+    private Project_Jamesbond currentframe;
+  // private  MyImageIcon backgroundImg;   
+  // private JCombobox combobox;
+    //private Mybutton button;
+   int width = 700;
+   int height = 300;
+    public Project_Jamesbond() {
+   currentframe = this;
+  setTitle("Pac man");
+  setBounds(200,200,700,300);
+  //setVisible(true);
+  setDefaultCloseOperation( WindowConstants.EXIT_ON_CLOSE );
+  
+  contentpane = (JPanel)getContentPane();
+  
+  //contentpane.setBackground( new Color(100, 150, 250) );
+  contentpane.setLayout( null );
+ //setVisible(true);
+  add_components();
+   setVisible(true);
+  // this.validate();
+}
+    
+ public void add_components(){
+ String path = "src/main/java/project_jamesbond/resources/";
+ 
+
+ 
+ UserLabel = new JLabel("User name");
+ UserLabel.setBounds(10,20,80,25);
+ contentpane.add(UserLabel);
+ 
+ tf = new JTextField(10);
+ tf.setBounds(80,20,200,25);
+ contentpane.add(tf);
+ passwordLabel = new JLabel("Password");
+ passwordLabel.setBounds(10,60,80,25);
+ contentpane.add(passwordLabel);
+ 
+ pw = new JPasswordField(10);
+ pw.setEchoChar('*');
+ pw.setBounds(80,60,200,25);
+ contentpane.add(pw);
+ 
+// button = new Mybutton();
+ //contentpane.add(button);
+ button = new JButton("Login");
+ button.addMouseListener(new MouseListener(){
+  public void mousePressed( MouseEvent e )	{ }
+    public void mouseReleased( MouseEvent e )	{ }
+    public void mouseEntered( MouseEvent e )	{ }	
+    public void mouseExited( MouseEvent e )	{ }
+  public void mouseClicked( MouseEvent e )	
+    { 
+        String user = tf.getText();
+        String password = pw.getText();
+       System.out.println(user + "    " + password);
+       currentframe.setVisible(false);
+      new new_frame();
+    }
+ 
+ 
+ });
+ button.setBounds(20,100,100,25);
+ contentpane.add(button);
+ validate();
+ }
+ public class new_frame extends JFrame{
+ private JButton button;
+ public new_frame(){
+ 
+ setTitle("new frame");
+  setBounds(200,200,700,300);
+  //setVisible(true);
+  setDefaultCloseOperation( WindowConstants.EXIT_ON_CLOSE );
+  
+  contentpane = (JPanel)getContentPane();
+  
+  setVisible(true);
+ 
+ 
+ }
+ 
+ 
+ 
+ }
+ 
+
+    public static void main(String[] args) {
+        new Project_Jamesbond();
+    }
+}
+
